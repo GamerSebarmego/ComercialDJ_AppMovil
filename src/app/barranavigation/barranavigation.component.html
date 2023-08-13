@@ -1,0 +1,21 @@
+<mat-toolbar class="mat-elevation-z8">
+  <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+    <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
+    <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
+  </button>
+  Comercial D&J
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav = "matSidenav">
+    <h4 class="title">ADMINISTRACION</h4>
+    <mat-divider></mat-divider>
+    <button mat-button class="menu-boton" [routerLink]="['/inicio']"><mat-icon>home</mat-icon>Inicio</button>
+    <button mat-button class="menu-boton"><mat-icon>person</mat-icon>Compras</button>
+    <button mat-button class="menu-boton" [routerLink]="['/proveedores']"><mat-icon>home</mat-icon>Proveedores</button>
+    <button mat-button class="menu-boton"><mat-icon>home</mat-icon>Compras</button>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="contenedor mat-elevation-z8 bg-white"></div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

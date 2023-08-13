@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="card-body">
+        <h5 class="card-title">{{titulo}}</h5>
+        <form action="">
+            <div class="form-group row">
+                <label for="ruc" class="col-form-label col-sm-2">Ruc</label>
+                <div class="col-sm-6">
+                    <input type="number" class="form-control" name="ruc" [(ngModel)]="proveedores.ruc">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="representante" class="col-form-label col-sm-2">Representante</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="representante" [(ngModel)]="proveedores.representante">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="razonsocial" class="col-form-label col-sm-2">Razon social</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="razonsocial" [(ngModel)]="proveedores.razonsocial">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="telefono" class="col-form-label col-sm-2">Telefono</label>
+                <div class="col-sm-6">
+                    <input type="number" class="form-control" name="telefono" [(ngModel)]="proveedores.telefono">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="correo" class="col-form-label col-sm-2">Correo</label>
+                <div class="col-sm-6">
+                    <input type="email" class="form-control" name="correo" [(ngModel)]="proveedores.correo">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="direccion" class="col-form-label col-sm-2">Direccion</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="direccion" [(ngModel)]="proveedores.direccion">
+                </div>
+            </div>
+            <button class="btn btn-success" role="button" (click)="create()">Registrar</button>
+        </form>
+    </div>
+</div>

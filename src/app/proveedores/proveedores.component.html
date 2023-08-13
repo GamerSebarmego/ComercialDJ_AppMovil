@@ -1,0 +1,28 @@
+<div class="alert alert-dark">
+  <span class="titulo">{{titulo}} </span><span class="subtitulo">{{listar}}</span>
+</div>
+<button class="btn btn-success" type="button" [routerLink]="['/proveedores/form']">Agregar Proveedor</button>
+
+  <hr class="border border-secondary border-3 opacity-75">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Ruc</th>
+          <th scope="col">Representate</th>
+          <th scope="col">Razon Social</th>
+          <th scope="col">Telefono</th>
+          <th scope="col">Correo</th>
+          <th scope="col">Direccion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let proveedor of proveedores">
+          <th>{{proveedor.ruc}}</th>
+          <td>{{proveedor.representante}}</td>
+          <td>{{proveedor.razonsocial}}</td>
+          <td>{{proveedor.telefono}}</td>
+          <td>{{proveedor.correo}}</td>
+          <td>{{proveedor.direccion}}</td>
+        </tr>
+      </tbody>
+    </table>
