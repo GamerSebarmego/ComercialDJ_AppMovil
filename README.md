@@ -1,4 +1,9 @@
 # ComercialDJAppWeb
+# Integrantes de Desarrollo:
+  Felipe Sebastian Barco Mego
+  Diana Patricia Aliaga Farro
+  Gerson Esau Arambulo Castro
+  Freddy Hernandez Sanchez
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.5.
 
