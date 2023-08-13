@@ -43,8 +43,10 @@
                     <input type="text" class="form-control" name="direccion" [(ngModel)]="proveedores.direccion">
                 </div>
             </div>
-            <button class="btn btn-success" role="button" (click)="create()">Registrar</button>
-            <button class="btn btn-success" role="button" (click)="update()">Actualizar</button>
+            <button class="btn btn-success" role="button" (click)='create()' *ngIf="!proveedores.ruc else elseBlock">Registrar</button>
+            <ng-template #elseBlock>
+                <button class="btn btn-warning" role="button" (click)='update()'>Actualizar</button>
+            </ng-template>
         </form>
     </div>
 </div>

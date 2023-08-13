@@ -30,13 +30,13 @@ export class ProveedoresService {
   }
 
   //Metodo Actualizar
-  update(proveedores:Proveedores):Observable<Proveedores> {
-    return this.http.put<Proveedores>(this.url + '/editar', proveedores);
+  update(proveedor:Proveedores):Observable<Proveedores> {
+    return this.http.put<any>(this.url + '/editar/' + proveedor.ruc, proveedor);
   }
 
   //Metodo Eliminar
   delete(ruc:string):Observable<Proveedores> {
-    return this.http.delete<Proveedores>(this.url + '/buscar/' + ruc)
+    return this.http.delete<Proveedores>(this.url + '/borrar/' + ruc)
   }
 
 }
