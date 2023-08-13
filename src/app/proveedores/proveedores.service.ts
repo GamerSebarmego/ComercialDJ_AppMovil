@@ -31,7 +31,7 @@ export class ProveedoresService {
 
   //Metodo Actualizar
   update(proveedores:Proveedores):Observable<Proveedores> {
-    return this.http.put<Proveedores>(this.url, proveedores);
+    return this.http.put<Proveedores>(this.url + '/editar', proveedores);
   }
 
   //Metodo Eliminar

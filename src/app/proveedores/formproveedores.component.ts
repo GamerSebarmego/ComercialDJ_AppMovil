@@ -1,7 +1,7 @@
 import { OnInit, Component } from '@angular/core';
 import { Proveedores } from './proveedores';
 import { ProveedoresService } from './proveedores.service';
-import { Route, Router } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-formproveedores',
@@ -14,9 +14,24 @@ export class FormproveedoresComponent implements OnInit{
 
   titulo: string = "Registro de Proveedores";
 
-  constructor(private proveedoresservice: ProveedoresService, private router: Router) {}
+  constructor(private proveedoresservice: ProveedoresService, private router: Router, private activatedRoute: ActivatedRoute) {}
 
-  ngOnInit(): void{}
+  ngOnInit(): void{
+    this.cargar();
+  }
+
+  cargar(): void {
+    this.activatedRoute.params.subscribe(
+      e => {
+        let ruc = e['ruc'];
+        if(ruc) {
+          this.proveedoresservice.get(ruc).subscribe(
+            prov => this.proveedores = prov
+          );
+        }
+      }
+    )
+  }
 
   create(): void {
     this.proveedoresservice.create(this.proveedores).subscribe(
@@ -24,4 +39,9 @@ export class FormproveedoresComponent implements OnInit{
     );
   }
 
+  update(): void {
+    this.proveedoresservice.update(this.proveedores).subscribe(
+      res => this.router.navigate(['/proveedores'])
+    );
+  }
 }

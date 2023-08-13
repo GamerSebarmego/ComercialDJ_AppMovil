@@ -21,7 +21,8 @@ const routes:Routes =[
   { path:'', redirectTo:'/inicio', pathMatch:'full'},
   { path:'inicio', component:HomeadminComponent},
   { path:'proveedores', component:ProveedoresComponent},
-  { path:'proveedores/form', component:FormproveedoresComponent}
+  { path:'proveedores/form', component:FormproveedoresComponent},
+  { path:'proveedores/form/:ruc', component:FormproveedoresComponent}
 ]
 
 @NgModule({

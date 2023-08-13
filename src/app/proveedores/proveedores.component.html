@@ -13,6 +13,7 @@
           <th scope="col">Telefono</th>
           <th scope="col">Correo</th>
           <th scope="col">Direccion</th>
+          <th scope="col">Editar</th>
         </tr>
       </thead>
       <tbody>
@@ -23,6 +24,7 @@
           <td>{{proveedor.telefono}}</td>
           <td>{{proveedor.correo}}</td>
           <td>{{proveedor.direccion}}</td>
+          <td><button class="btn btn-warning" type="button" name="button" [routerLink]="['/proveedores/form/', proveedor.ruc]">Editar</button></td>
         </tr>
       </tbody>
     </table>
