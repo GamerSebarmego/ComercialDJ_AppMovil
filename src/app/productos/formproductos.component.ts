@@ -11,6 +11,7 @@ import { ProductosService } from './productos.service';
 export class FormproductosComponent implements OnInit {
 
   productos: Productos = new Productos();
+  categorias: any[] = [];
 
   titulo: string = "Registro de Productos";
 
@@ -18,6 +19,10 @@ export class FormproductosComponent implements OnInit {
 
   ngOnInit(): void{
     this.cargar();
+
+    this.productosservice.dtocategoria().subscribe(
+      data => this.categorias = data
+    )
   }
 
   cargar(): void {

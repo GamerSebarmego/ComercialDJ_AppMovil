@@ -20,6 +20,8 @@ import { TrabajadoresComponent } from './trabajadores/trabajadores.component';
 import { FormtrabajadoresComponent } from './trabajadores/formtrabajadores.component';
 import { ProductosComponent } from './productos/productos.component';
 import { FormproductosComponent } from './productos/formproductos.component';
+import { PedidocomprasComponent } from './pedidocompras/pedidocompras.component';
+import { FormpedidocomprasComponent } from './pedidocompras/formpedidocompras.component';
 
 const routes:Routes =[
   { path:'', redirectTo:'/inicio', pathMatch:'full'},
@@ -46,6 +48,8 @@ const routes:Routes =[
     FormtrabajadoresComponent,
     ProductosComponent,
     FormproductosComponent,
+    PedidocomprasComponent,
+    FormpedidocomprasComponent,
     
   ],
   imports: [

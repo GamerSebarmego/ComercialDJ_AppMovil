@@ -10,7 +10,7 @@
             <th scope="col">CodProducto</th>
             <th scope="col">Nombre</th>
             <th scope="col">Marca</th>
-            <th scope="col">idcategoria</th>
+            <th scope="col">Categoría</th>
             <th scope="col">Descripcion</th>
             <th scope="col">Precio Compra</th>
             <th scope="col">Precio Venta</th>
@@ -24,10 +24,10 @@
             <th>{{producto.codproducto}}</th>
             <td>{{producto.nombreproducto}}</td>
             <td>{{producto.marcaproducto}}</td>
-            <td>{{producto.idcategoria}}</td>
+            <td>{{ producto.idcategoria}}</td>
             <td>{{producto.descripcion}}</td>
-            <td>{{producto.preciocompra}}</td>
-            <td>{{producto.precioventa}}</td>
+            <td>S/.{{producto.preciocompra}}</td>
+            <td>S/.{{producto.precioventa}}</td>
             <td>{{producto.stock}}</td>
             <td><button class="btn btn-warning" type="button" name="button" [routerLink]="['/productos/form/', producto.codproducto]">Editar</button></td>
             <td><button class="btn btn-danger" (click)="delete(producto)">Eliminar</button></td>

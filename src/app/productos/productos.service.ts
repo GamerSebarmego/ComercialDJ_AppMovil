@@ -9,6 +9,7 @@ import { Productos } from './productos';
 export class ProductosService {
 
   private url: string = "http://localhost:8090/rest/producto"
+  private urldto: string = "http://localhost:8090/rest/categoriaproducto"
 
   constructor(private http: HttpClient) { }
 
@@ -36,4 +37,10 @@ export class ProductosService {
   delete(codproducto:string):Observable<Productos> {
     return this.http.delete<Productos>(this.url + '/borrar/' + codproducto)
   }
+
+  // Agrega este método a tu servicio
+  dtocategoria(): Observable<any[]> {
+    return this.http.get<any[]>(this.urldto + '/listar');
+  }
+
 }

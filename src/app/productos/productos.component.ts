@@ -13,6 +13,7 @@ export class ProductosComponent implements OnInit{
   listar: String = "Lista de Productos"
  
   productos?: Productos[];
+  categorias: any[] = [];
  
   constructor(private productosservice:ProductosService) { }
  
@@ -29,4 +30,5 @@ export class ProductosComponent implements OnInit{
      )
    )
   }
+  
 }
