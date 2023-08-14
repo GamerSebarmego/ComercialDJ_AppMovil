@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError  } from 'rxjs';
-import { catchError } from 'rxjs/operators';
 import { Proveedores } from './proveedores';
 
 @Injectable({
@@ -23,7 +22,6 @@ export class ProveedoresService {
     return this.http.post<any>(this.url + '/agregar', proveedor);
   }
   
-
   //Metodo Buscar
   get(ruc:string):Observable<Proveedores> {
     return this.http.get<Proveedores>(this.url + '/buscar/' + ruc)

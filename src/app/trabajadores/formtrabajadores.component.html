@@ -1,0 +1,44 @@
+<div class="container">
+    <div class="card-body">
+        <h5 class="card-title">{{titulo}}</h5>
+        <form action="">
+            <div class="form-group row">
+                <label for="codtrabajador" class="col-form-label col-sm-2">CodTrabajador</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="codtrabajador" [(ngModel)]="trabajadores.codtrabajador">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="nombretrabajador" class="col-form-label col-sm-2">Nombre</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="nombretrabajador" [(ngModel)]="trabajadores.nombretrabajador">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="direccion" class="col-form-label col-sm-2">Direccion</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="direccion" [(ngModel)]="trabajadores.direccion">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="telefono" class="col-form-label col-sm-2">Telefono</label>
+                <div class="col-sm-6">
+                    <input type="number" class="form-control" name="telefono" [(ngModel)]="trabajadores.telefono">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="correo" class="col-form-label col-sm-2">Correo</label>
+                <div class="col-sm-6">
+                    <input type="email" class="form-control" name="correo" [(ngModel)]="trabajadores.correo">
+                </div>
+            </div>
+
+            <button class="btn btn-success" role="button" (click)='create()'>Registrar</button>
+            <button class="btn btn-warning" role="button" (click)='update()'>Actualizar</button>
+        </form>
+    </div>
+</div>

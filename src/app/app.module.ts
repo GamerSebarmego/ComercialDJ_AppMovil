@@ -16,13 +16,18 @@ import { ProveedoresComponent } from './proveedores/proveedores.component';
 import { BarranavigationComponent } from './barranavigation/barranavigation.component';
 import { FormproveedoresComponent } from './proveedores/formproveedores.component';
 import { HomeadminComponent } from './homeadmin/homeadmin.component';
+import { TrabajadoresComponent } from './trabajadores/trabajadores.component';
+import { FormtrabajadoresComponent } from './trabajadores/formtrabajadores.component';
 
 const routes:Routes =[
   { path:'', redirectTo:'/inicio', pathMatch:'full'},
   { path:'inicio', component:HomeadminComponent},
   { path:'proveedores', component:ProveedoresComponent},
   { path:'proveedores/form', component:FormproveedoresComponent},
-  { path:'proveedores/form/:ruc', component:FormproveedoresComponent}
+  { path:'proveedores/form/:ruc', component:FormproveedoresComponent},
+  { path:'trabajadores', component:TrabajadoresComponent},
+  { path:'trabajadores/form', component:FormtrabajadoresComponent},
+  { path:'trabajadores/form/:codtrabajador', component:FormtrabajadoresComponent},
 ]
 
 @NgModule({
@@ -31,7 +36,9 @@ const routes:Routes =[
     ProveedoresComponent,
     FormproveedoresComponent,
     BarranavigationComponent,
-    HomeadminComponent
+    HomeadminComponent,
+    TrabajadoresComponent,
+    FormtrabajadoresComponent,
     
   ],
   imports: [

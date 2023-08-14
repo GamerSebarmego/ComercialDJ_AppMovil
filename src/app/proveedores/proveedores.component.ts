@@ -22,7 +22,6 @@ export class ProveedoresComponent implements OnInit{
  }
 
  delete(proveedor:Proveedores):void {
-  console.log("Prueba de Menzaje");
   this.proveedoresservice.delete(proveedor.ruc).subscribe(
     prov => this.proveedoresservice.getAll().subscribe(
       response => this.proveedores = response
