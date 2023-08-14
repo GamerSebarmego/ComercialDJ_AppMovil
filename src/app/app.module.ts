@@ -22,6 +22,7 @@ import { ProductosComponent } from './productos/productos.component';
 import { FormproductosComponent } from './productos/formproductos.component';
 import { PedidocomprasComponent } from './pedidocompras/pedidocompras.component';
 import { FormpedidocomprasComponent } from './pedidocompras/formpedidocompras.component';
+import { DetallepedidocomprasComponent } from './pedidocompras/detallepedidocompras/detallepedidocompras.component';
 
 const routes:Routes =[
   { path:'', redirectTo:'/inicio', pathMatch:'full'},
@@ -35,6 +36,8 @@ const routes:Routes =[
   { path:'productos', component:ProductosComponent},
   { path:'productos/form', component:FormproductosComponent},
   { path:'productos/form/:codproducto', component:FormproductosComponent},
+  { path:'pedidocompras', component:PedidocomprasComponent},
+  { path:'pedidocompras/detalle/:iddetalle', component:DetallepedidocomprasComponent},
 ]
 
 @NgModule({
@@ -50,6 +53,7 @@ const routes:Routes =[
     FormproductosComponent,
     PedidocomprasComponent,
     FormpedidocomprasComponent,
+    DetallepedidocomprasComponent,
     
   ],
   imports: [
