@@ -1,0 +1,13 @@
+.titulo {
+    font-weight: bold;
+    margin-right: 5px;
+    font-size: 1.2rem;
+}
+.titulo:hover {
+    color: #CE952A;
+}
+
+.subtitulo:hover {
+    color: #FACC42;
+    font-weight: bold;
+}

@@ -1,0 +1,64 @@
+<div class="container">
+    <div class="card-body">
+        <h5 class="card-title">{{titulo}}</h5>
+        <form action="">
+            <div class="form-group row">
+                <label for="codproducto" class="col-form-label col-sm-2">CodProducto</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="codproducto" [(ngModel)]="productos.codproducto">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="nombreproducto" class="col-form-label col-sm-2">Nombre</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="nombreproducto" [(ngModel)]="productos.nombreproducto">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="marcaproducto" class="col-form-label col-sm-2">Marca</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="marcaproducto" [(ngModel)]="productos.marcaproducto">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="idcategoria" class="col-form-label col-sm-2">IdCategoria</label>
+                <div class="col-sm-6">
+                    <input type="number" class="form-control" name="idcategoria" [(ngModel)]="productos.idcategoria">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="descripcion" class="col-form-label col-sm-2">Descripcion</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="descripcion" [(ngModel)]="productos.descripcion">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="preciocompra" class="col-form-label col-sm-2">Precio Compra</label>
+                <div class="col-sm-6">
+                    <input type="number" class="form-control" name="preciocompra" [(ngModel)]="productos.preciocompra">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="precioventa" class="col-form-label col-sm-2">Precio Venta</label>
+                <div class="col-sm-6">
+                    <input type="number" class="form-control" name="precioventa" [(ngModel)]="productos.precioventa">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="stock" class="col-form-label col-sm-2">Stock</label>
+                <div class="col-sm-6">
+                    <input type="number" class="form-control" name="stock" [(ngModel)]="productos.stock">
+                </div>
+            </div>
+            <button class="btn btn-success" role="button" (click)='create()'>Registrar</button>
+            <button class="btn btn-warning" role="button" (click)='update()'>Actualizar</button>
+        </form>
+    </div>
+</div>
