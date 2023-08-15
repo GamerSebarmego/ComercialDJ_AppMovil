@@ -37,7 +37,8 @@ const routes:Routes =[
   { path:'productos/form', component:FormproductosComponent},
   { path:'productos/form/:codproducto', component:FormproductosComponent},
   { path:'pedidocompras', component:PedidocomprasComponent},
-  { path:'pedidocompras/detalle/:iddetalle', component:DetallepedidocomprasComponent},
+  { path:'pedidocompras/form', component:FormpedidocomprasComponent},
+  { path:'pedidocompras/detalle/:idpedido', component:DetallepedidocomprasComponent},
 ]
 
 @NgModule({

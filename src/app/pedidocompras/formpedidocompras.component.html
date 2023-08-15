@@ -1,1 +1,27 @@
-<p>formpedidocompras works!</p>
+<div class="container">
+    <div class="card-body">
+        <h5 class="card-title">{{titulo}}</h5>
+        <form action="">
+            <div class="form-group row">
+                <label for="numbercompra" class="col-form-label col-sm-2">Numer de Compra</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="numbercompra" [(ngModel)]="pedidocompras.numbercompra">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="fechapedido" class="col-form-label col-sm-2">Fecha Pedido</label>
+                <div class="col-sm-6">
+                    <input type="date" class="form-control" name="fechapedido" [(ngModel)]="pedidocompras.fechapedido">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="codtrabajador" class="col-form-label col-sm-2">CodTrabajador</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="codtrabajador" [(ngModel)]="pedidocompras.codtrabajador">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

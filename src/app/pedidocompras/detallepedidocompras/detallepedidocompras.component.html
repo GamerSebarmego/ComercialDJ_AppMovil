@@ -1,1 +1,22 @@
-<p>detallepedidocompras works!</p>
+<div class="alert alert-dark">
+    <span class="titulo">{{titulo}} </span><span class="subtitulo">{{listar}}</span>
+  </div>
+    <hr class="border border-secondary border-3 opacity-75">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">IdDetalle</th>
+            <th scope="col">IdPedido</th>
+            <th scope="col">CodProducto</th>
+            <th scope="col">Cantidad</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let detallepedidocompra of detallepedidocompras">
+            <th>{{detallepedidocompra.iddetalle}}</th>
+            <td>{{detallepedidocompra.idpedido}}</td>
+            <td>{{detallepedidocompra.codproducto}}</td>
+            <td>{{detallepedidocompra.cantidadproductos}}</td>
+          </tr>
+        </tbody>
+      </table>

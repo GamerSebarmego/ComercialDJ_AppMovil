@@ -1,5 +1,5 @@
 export class Detallepedidocompras {
-    iddetalle: number = 0;
+    iddetalle?: number;
     idpedido?: string;
     codproducto?: Date;
     cantidadproductos?: string;

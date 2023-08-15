@@ -14,6 +14,6 @@ export class DetallepedidocompraService {
 
   // Método para obtener los detalles de un pedido por su idpedido
   getDetallesPorIdPedido(idpedido: number): Observable<Detallepedidocompras[]> {
-    return this.http.get<Detallepedidocompras[]>(this.url + "/buscar");
+    return this.http.get<Detallepedidocompras[]>(this.url + "/listarpedido/" + idpedido);
   }
 }
