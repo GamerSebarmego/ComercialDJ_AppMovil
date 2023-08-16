@@ -3,20 +3,23 @@
     <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
     <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
   </button>
-  Comercial D&J
+  <h5>Comercial D&J</h5>
 </mat-toolbar>
-
 <mat-sidenav-container>
   <mat-sidenav #sidenav = "matSidenav">
     <h4 class="title">ADMINISTRACION</h4>
-    <mat-divider></mat-divider>
+    <hr class="border border-white opacity-75">
     <button mat-button class="menu-boton" [routerLink]="['/inicio']"><mat-icon>home</mat-icon>Inicio</button>
-    <button mat-button class="menu-boton" [routerLink]="['/pedidocompras']"><mat-icon>person</mat-icon>Compras</button>
-    <button mat-button class="menu-boton" [routerLink]="['/productos']"><mat-icon>home</mat-icon>Productos</button>
-    <button mat-button class="menu-boton" [routerLink]="['/proveedores']"><mat-icon>home</mat-icon>Proveedores</button>
+    <button mat-button class="menu-boton" [routerLink]="['/pedidocompras']"><mat-icon>shopping_cart</mat-icon>Compras</button>
+    <button mat-button class="menu-boton" [routerLink]="['/productos']"><mat-icon>inventory</mat-icon>Productos</button>
+    <button mat-button class="menu-boton" [routerLink]="['/proveedores']"><mat-icon>person</mat-icon>Proveedores</button>
     <button mat-button class="menu-boton" [routerLink]="['trabajadores']"><mat-icon>person</mat-icon>Trabajadores</button>
   </mat-sidenav>
   <mat-sidenav-content>
-    <div class="contenedor mat-elevation-z8 bg-white"><router-outlet></router-outlet></div>
+    <div class="contenedor mat-elevation-z8 bg-white">
+      <div class="container">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

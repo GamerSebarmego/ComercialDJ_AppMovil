@@ -1,13 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
 * {
     color: black;
 }
  h1 {
+    font-family: 'Indie Flower';
     font-weight: bold;
-    font-size: 2rem;
+    font-size: 2.2rem;
+    margin: 15px;
  }
-
- .contenedor {
-    background-color: aqua;
-    width: 100%;
-    height: 400px;
-}
+ a{
+    text-decoration: none;
+    cursor: pointer;
+ }
