@@ -17,4 +17,9 @@ export class PedidocomprasService {
     return this.http.get<Pedidocompras[]>(this.url + '/listar')
   }
 
+    //Metodo Crear
+    create(pedidocompra: Pedidocompras): Observable<Pedidocompras> {
+      return this.http.post<any>(this.url + '/agregar', pedidocompra);
+    }
+
 }

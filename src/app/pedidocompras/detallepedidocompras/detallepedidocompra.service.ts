@@ -16,4 +16,10 @@ export class DetallepedidocompraService {
   getDetallesPorIdPedido(idpedido: number): Observable<Detallepedidocompras[]> {
     return this.http.get<Detallepedidocompras[]>(this.url + "/listarpedido/" + idpedido);
   }
+
+    //Metodo Crear
+    create(detallepedidocompra: Detallepedidocompras): Observable<Detallepedidocompras> {
+      return this.http.post<any>(this.url + '/agregar', detallepedidocompra);
+    }
+
 }
