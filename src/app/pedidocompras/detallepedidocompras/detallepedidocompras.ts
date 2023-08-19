@@ -1,6 +1,6 @@
 export class Detallepedidocompras {
-    iddetalle?: number;
-    idpedido?: string;
-    codproducto?: Date;
-    cantidadproductos?: string;
+    iddetalle: number = 0;
+    idpedido?: number;
+    codproducto?: string;
+    cantidadproductos?: number;
 }

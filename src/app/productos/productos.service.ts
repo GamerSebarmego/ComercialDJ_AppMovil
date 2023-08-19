@@ -38,7 +38,7 @@ export class ProductosService {
     return this.http.delete<Productos>(this.url + '/borrar/' + codproducto)
   }
 
-  // Agrega este método a tu servicio
+  // Listar Categoria
   dtocategoria(): Observable<any[]> {
     return this.http.get<any[]>(this.urldto + '/listar');
   }

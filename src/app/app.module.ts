@@ -23,6 +23,7 @@ import { FormproductosComponent } from './productos/formproductos.component';
 import { PedidocomprasComponent } from './pedidocompras/pedidocompras.component';
 import { FormpedidocomprasComponent } from './pedidocompras/formpedidocompras.component';
 import { DetallepedidocomprasComponent } from './pedidocompras/detallepedidocompras/detallepedidocompras.component';
+import { DatePipe } from '@angular/common';
 
 const routes:Routes =[
   { path:'', redirectTo:'/inicio', pathMatch:'full'},
@@ -69,7 +70,7 @@ const routes:Routes =[
     MatIconModule,
     MatDividerModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

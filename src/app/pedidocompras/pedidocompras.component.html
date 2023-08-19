@@ -16,11 +16,12 @@
         </thead>
         <tbody>
           <tr *ngFor="let pedidocompra of pedidocompras">
-            <th>{{pedidocompra.idpedido}}</th>
-            <td>{{pedidocompra.numbercompra}}</td>
-            <td>{{pedidocompra.fechapedido}}</td>
-            <td>{{pedidocompra.codtrabajador}}</td>
+            <th>{{ pedidocompra.idpedido }}</th>
+            <td>{{ pedidocompra.numbercompra }}</td>
+            <td>{{ pedidocompra.fechapedido | date:'dd-MM-yyyy' }}</td>
+            <td>{{ getNombreTrabajador(pedidocompra.codtrabajador) }}</td>
             <td><button class="btn btn-warning" type="button" name="button" [routerLink]="['/pedidocompras/detalle/', pedidocompra.idpedido]">Ver Detalle</button></td>
           </tr>
+          
         </tbody>
       </table>

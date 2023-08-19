@@ -24,7 +24,7 @@
             </div>
 
             <div class="form-group">
-                <label for="idcategoria">IdCategoria</label>
+                <label for="idcategoria">Categoria</label>
                 <select class="form-control" name="idcategoria" [(ngModel)]="productos.idcategoria">
                   <option *ngFor="let categoria of categorias" [value]="categoria.idcategoria">{{ categoria.descripcion }}</option>
                 </select>

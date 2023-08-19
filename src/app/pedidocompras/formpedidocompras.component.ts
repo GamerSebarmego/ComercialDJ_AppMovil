@@ -15,57 +15,78 @@ export class FormpedidocomprasComponent implements OnInit {
 
   pedidocompras: Pedidocompras = new Pedidocompras();
   detallepedidocompras: Detallepedidocompras = new Detallepedidocompras();
+  detallepedidocompraslista?: Detallepedidocompras[];
+  trabajador :any[] = [];
+  producto: any[] = [];
 
   titulo: string = "Registro de Pedido de Compras";
 
   mostrarFormulario: boolean = true;
+  
+  idpedidoGenerado: number = 0;
 
-  constructor(private route: ActivatedRoute, private pedidocomprasservice: PedidocomprasService, private detallepedidocompraService: DetallepedidocompraService, private router: Router, private activatedRoute: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private pedidocomprasservice: PedidocomprasService, private detallepedidocompraservice: DetallepedidocompraService, private router: Router, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
+
+    this.pedidocomprasservice.dtotrabajador().subscribe(
+      data => this.trabajador = data
+    );
+
+    this.detallepedidocompraservice.dtoproducto().subscribe(
+      data => this.producto = data
+    )
   }
 
   createpedido(): void {
-    this.pedidocomprasservice.create(this.pedidocompras).subscribe(
-      res => {
-        const Toast = Swal.mixin({
-          toast: true,
-          position: 'top-end',
-          showConfirmButton: false,
-          timer: 2000,
-          timerProgressBar: true,
-        });
+    this.pedidocomprasservice.getLastIdPedido().subscribe(
+      lastId => {
+        const newId = lastId + 1;
+        this.pedidocompras.idpedido = newId;
+        this.detallepedidocompras.idpedido = newId;
+        this.pedidocomprasservice.create(this.pedidocompras).subscribe(
+          res => {
+            const Toast = Swal.mixin({
+              toast: true,
+              position: 'top-end',
+              showConfirmButton: false,
+              timer: 2000,
+              timerProgressBar: true,
+            });
   
-        Toast.fire({
-          icon: 'success',
-          title: 'El Pedido ' + this.pedidocompras.numbercompra + ' se generó correctamente',
-        });
-        this.mostrarFormulario = false;
-        console.log(this.pedidocompras)
-      },
-      error => {
-        const ToastError = Swal.mixin({
-          toast: true,
-          position: 'top-end',
-          showConfirmButton: false,
-          timer: 3000,
-          timerProgressBar: true,
-        });
+            Toast.fire({
+              icon: 'success',
+              title: 'El Pedido ' + this.pedidocompras.numbercompra + ' se generó correctamente',
+            });
+            this.mostrarFormulario = false;
+            console.log(this.pedidocompras);
+            this.createdetalle();
+          },
+          error => {
+            const ToastError = Swal.mixin({
+              toast: true,
+              position: 'top-end',
+              showConfirmButton: false,
+              timer: 3000,
+              timerProgressBar: true,
+            });
   
-        ToastError.fire({
-          icon: 'error',
-          title: 'Error al Registrar el Pedido',
-          text: 'Intentelo Denuevo',
-        });
-        console.log(this.pedidocompras)
+            ToastError.fire({
+              icon: 'error',
+              title: 'Error al Registrar el Pedido',
+              text: 'Intentelo Denuevo',
+            });
+            console.log(this.pedidocompras);
+          }
+        );
       }
     );
   }
-
+  
   createdetalle(): void {
-    this.detallepedidocompraService.create(this.detallepedidocompras).subscribe(
-      res => {
-        const detallepedidocomprapedidoCreado: Detallepedidocompras = res;
+    this.detallepedidocompras.idpedido = this.pedidocompras.idpedido;
+    this.detallepedidocompraservice.create(this.detallepedidocompras).subscribe(
+      (detalleCreado) => {
         const Toast = Swal.mixin({
           toast: true,
           position: 'top-end',
@@ -76,12 +97,14 @@ export class FormpedidocomprasComponent implements OnInit {
   
         Toast.fire({
           icon: 'success',
-          title: 'El Producto se agrego correctamente',
+          title: 'El Producto se agregó correctamente',
         });
-        this.mostrarFormulario = false;
+
         console.log(this.detallepedidocompras)
+        this.detallepedidocompras.codproducto = "";
+        this.detallepedidocompras.cantidadproductos = 0;
       },
-      error => {
+      (error) => {
         const ToastError = Swal.mixin({
           toast: true,
           position: 'top-end',
@@ -95,9 +118,9 @@ export class FormpedidocomprasComponent implements OnInit {
           title: 'Error al Agregar el Producto',
           text: 'Intentelo Denuevo',
         });
-        console.log(this.detallepedidocompras)
+        console.error(error);
       }
     );
   }
-
+  
 }

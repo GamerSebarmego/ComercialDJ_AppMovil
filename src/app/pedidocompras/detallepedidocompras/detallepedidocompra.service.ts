@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { Detallepedidocompras } from './detallepedidocompras';
 
 @Injectable({
@@ -9,6 +9,7 @@ import { Detallepedidocompras } from './detallepedidocompras';
 export class DetallepedidocompraService {
 
   private url: string = "http://localhost:8090/rest/detallepedidocompra";
+  private urldto: string = "http://localhost:8090/rest/producto"
 
   constructor(private http: HttpClient) { }
 
@@ -17,9 +18,21 @@ export class DetallepedidocompraService {
     return this.http.get<Detallepedidocompras[]>(this.url + "/listarpedido/" + idpedido);
   }
 
-    //Metodo Crear
-    create(detallepedidocompra: Detallepedidocompras): Observable<Detallepedidocompras> {
-      return this.http.post<any>(this.url + '/agregar', detallepedidocompra);
-    }
+  // Obtener el último iddetalle
+  getLastIdDetalle(): Observable<number> {
+    return this.http.get<Detallepedidocompras[]>(this.url + '/listar').pipe(
+      map(detalle => detalle.length > 0 ? detalle[detalle.length - 1].iddetalle : 0)
+    );
+  }
+
+  //Metodo Crear
+  create(detallepedidocompra: Detallepedidocompras): Observable<Detallepedidocompras> {
+    return this.http.post<any>(this.url + '/agregar', detallepedidocompra);
+  }
+
+  // Listar Producto
+  dtoproducto(): Observable<any[]> {
+    return this.http.get<any[]>(this.urldto + '/listar');
+  }
 
 }
