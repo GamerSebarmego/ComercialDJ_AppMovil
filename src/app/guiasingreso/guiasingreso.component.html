@@ -1,0 +1,27 @@
+<div class="alert alert-dark">
+    <span class="titulo">{{titulo}} </span><span class="subtitulo">{{listar}}</span>
+  </div>
+  <button class="btn btn-success" type="button" [routerLink]="['/guiasingreso/form']">Ingresar Pedido de Compra</button>
+  
+    <hr class="border border-secondary border-3 opacity-75">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">IdGuia</th>
+            <th scope="col">Numero de Guia</th>
+            <th scope="col">Fecha de Guia</th>
+            <th scope="col">Proveedor</th>
+            <th scope="col">Ver Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let guiaingreso of guiasingreso">
+            <th>{{ guiaingreso.idguia }}</th>
+            <td>{{ guiaingreso.numeroguia }}</td>
+            <td>{{ guiaingreso.fecha | date:'dd-MM-yyyy' }}</td>
+            <td>{{ getNombreProveedor(guiaingreso.ruc) }}</td>
+            <td><button class="btn btn-warning" type="button" name="button" [routerLink]="['/guiasingreso/detalle/', guiaingreso.ruc]">Ver Detalle</button></td>
+          </tr>
+          
+        </tbody>
+      </table>

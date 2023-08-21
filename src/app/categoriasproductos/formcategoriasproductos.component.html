@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="card-body">
+        <h5 class="card-title">{{titulo}}</h5>
+        <form action="">
+            <div class="form-group row">
+                <label for="codproducto" class="col-form-label col-sm-2">IdCategoria</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="codproducto" [(ngModel)]="categoriasproductos.idcategoria">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="nombreproducto" class="col-form-label col-sm-2">Descripcion</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="nombreproducto" [(ngModel)]="categoriasproductos.descripcion">
+                </div>
+            </div>
+
+            <div class="form-group row">
+
+                <div class="form-group">
+                    <label for="idcategoria">Estado</label>
+                    <select class="form-control" name="idcategoria" [(ngModel)]="categoriasproductos.estado">
+                      <option  [value]="true">Activo</option>
+                      <option  [value]="false">Inactivo</option>
+                    </select>
+                  </div>
+            
+            </div>
+            <button class="btn btn-success" role="button" (click)='create()'>Registrar</button>
+            <button class="btn btn-warning" role="button" (click)='update()'>Actualizar</button>
+        </form>
+    </div>
+</div>

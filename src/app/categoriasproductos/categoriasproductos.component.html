@@ -1,0 +1,26 @@
+<div class="alert alert-dark">
+    <span class="titulo">{{titulo}} </span><span class="subtitulo">{{listar}}</span>
+  </div>
+  <button class="btn btn-success" type="button" [routerLink]="['/categoriasproductos/form']">Agregar Categoria</button>
+  
+    <hr class="border border-secondary border-3 opacity-75">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Categoría</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Editar</th>
+            <th scope="col">Eliminar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let categorias of categoriasproductos">
+            <th>{{categorias.idcategoria}}</th>
+            <td>{{categorias.descripcion}}</td>
+            <td>{{categorias.estado}}</td>
+            <td><button class="btn btn-warning" type="button" name="button" [routerLink]="['/categoriasproductos/form/', categorias.idcategoria]">Editar</button></td>
+            <td><button class="btn btn-danger" (click)="delete(categorias)">Eliminar</button></td>
+          </tr>
+        </tbody>
+      </table>

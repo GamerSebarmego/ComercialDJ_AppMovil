@@ -25,10 +25,9 @@ export class FormpedidocomprasComponent implements OnInit {
   
   idpedidoGenerado: number = 0;
 
-  constructor(private route: ActivatedRoute, private pedidocomprasservice: PedidocomprasService, private detallepedidocompraservice: DetallepedidocompraService, private router: Router, private activatedRoute: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private pedidocomprasservice: PedidocomprasService, private detallepedidocompraservice: DetallepedidocompraService, private router: Router) {}
 
   ngOnInit(): void {
-
     this.pedidocomprasservice.dtotrabajador().subscribe(
       data => this.trabajador = data
     );
@@ -53,14 +52,13 @@ export class FormpedidocomprasComponent implements OnInit {
               timer: 2000,
               timerProgressBar: true,
             });
-  
+            this.detallepedidocompraservice.getDetallesPorIdPedido(newId)
+            console.log("salida", this.detallepedidocompraservice)
             Toast.fire({
               icon: 'success',
               title: 'El Pedido ' + this.pedidocompras.numbercompra + ' se generó correctamente',
             });
             this.mostrarFormulario = false;
-            console.log(this.pedidocompras);
-            this.createdetalle();
           },
           error => {
             const ToastError = Swal.mixin({
@@ -94,7 +92,6 @@ export class FormpedidocomprasComponent implements OnInit {
           timer: 2000,
           timerProgressBar: true,
         });
-  
         Toast.fire({
           icon: 'success',
           title: 'El Producto se agregó correctamente',
@@ -102,7 +99,8 @@ export class FormpedidocomprasComponent implements OnInit {
 
         console.log(this.detallepedidocompras)
         this.detallepedidocompras.codproducto = "";
-        this.detallepedidocompras.cantidadproductos = 0;
+        this.detallepedidocompras.cantidadproductos = undefined;
+        this.actualizarListaDetalles(this.pedidocompras.idpedido)
       },
       (error) => {
         const ToastError = Swal.mixin({
@@ -122,5 +120,15 @@ export class FormpedidocomprasComponent implements OnInit {
       }
     );
   }
-  
+ 
+  actualizarListaDetalles(idpedido: number): void {
+    this.detallepedidocompraservice.getDetallesPorIdPedido(idpedido).subscribe(
+      (detalles) => {
+        this.detallepedidocompraslista = detalles;
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
 }

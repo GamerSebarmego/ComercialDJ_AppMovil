@@ -6,14 +6,37 @@
   <h5>Comercial D&J</h5>
 </mat-toolbar>
 <mat-sidenav-container style="background-color: #efeae2;">
-  <mat-sidenav #sidenav = "matSidenav">
+  <mat-sidenav #sidenav="matSidenav">
     <h4 class="title">ADMINISTRACION</h4>
     <hr class="border border-white opacity-75">
     <button mat-button class="menu-boton" [routerLink]="['/inicio']"><mat-icon>home</mat-icon>Inicio</button>
-    <button mat-button class="menu-boton" [routerLink]="['/pedidocompras']"><mat-icon>shopping_cart</mat-icon>Compras</button>
-    <button mat-button class="menu-boton" [routerLink]="['/productos']"><mat-icon>inventory</mat-icon>Productos</button>
-    <button mat-button class="menu-boton" [routerLink]="['/proveedores']"><mat-icon>person</mat-icon>Proveedores</button>
-    <button mat-button class="menu-boton" [routerLink]="['trabajadores']"><mat-icon>person</mat-icon>Trabajadores</button>
+    <mat-accordion >
+      <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>  
+          <mat-panel-title class="menu-boton">
+            Almacen
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <hr class="border border-white border-1 opacity-75 m-0">
+        <button mat-button class="menu-boton" [routerLink]="['/pedidocompras']">Registro Pedido</button>
+        <button mat-button class="menu-boton m-0" [routerLink]="['/guiasingreso']">Registro Compras</button>
+      </mat-expansion-panel>
+    </mat-accordion>
+    <mat-accordion >
+      <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>  
+          <mat-panel-title class="menu-boton">
+            Productos
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <hr class="border border-white border-1 opacity-75 m-0">
+        <button mat-button class="menu-boton m-0" [routerLink]="['/categoriasproductos']"><mat-icon>inventory</mat-icon>Categorias</button>
+        <button mat-button class="menu-boton m-0" [routerLink]="['/productos']"><mat-icon>inventory</mat-icon>Productos</button>
+      </mat-expansion-panel>
+    </mat-accordion>
+    <button mat-button class="menu-boton" [routerLink]="['/proveedores']"><mat-icon>group</mat-icon>Proveedores</button>
+    <button mat-button class="menu-boton" [routerLink]="['/trabajadores']"><mat-icon>person</mat-icon>Trabajadores</button>
+    <button mat-button class="menu-boton" [routerLink]="['']"><mat-icon>settings</mat-icon>Ajustes</button>
   </mat-sidenav>
   <mat-sidenav-content>
     <div class="contenedor mat-elevation-z8 bg-white">
